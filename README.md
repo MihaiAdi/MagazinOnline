@@ -51,21 +51,21 @@ Interogări complexe:
 
 1. 	  SELECT C.Nume, C.Prenume
 FROM Clienti C
-ORDER BY (SELECT avg(CO.PretTotal)from Comenzi CO
+                          ORDER BY (SELECT avg(CO.PretTotal)from Comenzi CO
      where co.ClientID = C.ClientID ) DESC
 
 2. 	  SELECT C.Nume + ' ' + C.Prenume AS Client
-FROM Clienti C, Comenzi CO , ProduseComandate PC , Produse P
+                                                  FROM Clienti C, Comenzi CO , ProduseComandate PC , Produse P
 WHERE C.ClientID = CO.ClientID AND CO.ComandaID = PC.ComandaID  AND PC.ProdusID = P.ProdusID AND P.DepartamentID IN
                               (SELECT DepartamentID FROM Departamente WHERE P.DepartamentID = 10001 )
 
 3. 	  SELECT C.Nume + ' ' + C.Prenume AS Client
-FROM Clienti C, Comenzi CO , ProduseComandate PC , Produse P,Departamente d
+                                                             FROM Clienti C, Comenzi CO , ProduseComandate PC , Produse P,Departamente d
 WHERE C.ClientID = CO.ClientID AND CO.ComandaID = PC.ComandaID  AND PC.ProdusID = P.ProdusID AND p.DepartamentID = d.DepartamentID and D.FurnizorID IN
                                                                                                  (SELECT FurnizorID FROM Furnizori WHERE d.FurnizorID = 1003)
 
 4. 	  SELECT C.Nume + ' ' + C.Prenume AS Client
-FROM Clienti C, Comenzi CO , ProduseComandate PC
+                                   FROM Clienti C, Comenzi CO , ProduseComandate PC
 WHERE C.ClientID = CO.ClientID AND CO.ComandaID = PC.ComandaID AND PC.ProdusID IN (SELECT ProdusID FROM Produse WHERE PC.ProdusID = 100003 )
 
 
