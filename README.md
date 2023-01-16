@@ -29,22 +29,22 @@ Dupa logarea cu username-ul si password-ul corecte se deschide un meniu principa
 
 Interogări simple :
 
-1. 	SELECT p.Nume,F.NumeFurnizor\n" +
+1.  	SELECT p.Nume,F.NumeFurnizor\n" +
         "from Produse p inner join Departamente d  on p.DepartamentID = d.DepartamentID\n" +
         "    inner join Furnizori F on d.FurnizorID = F.FurnizorID
 
-2. 	SELECT c.Nume,SUM(CO.PretTotal) AS TOTAL FROM Comenzi CO INNER JOIN Clienti C on C.ClientID = Co.ClientID\n" +
+2. 	 SELECT c.Nume,SUM(CO.PretTotal) AS TOTAL FROM Comenzi CO INNER JOIN Clienti C on C.ClientID = Co.ClientID\n" +
         "group by c.Nume order by SUM(CO.PretTotal) DESC
 
 3.  	SELECT CO.ComandaID,SUM(PC.Cantitate) AS NrProduseComandate FROM Comenzi CO INNER JOIN ProduseComandate PC on CO.ComandaID = PC.ComandaID\n" +
         "group by CO.ComandaID
 
-4. 	SELECT F.NumeFurnizor, F.CategorieFurnizor, d.NumeDepartament FROM Departamente D inner join Furnizori F on F.FurnizorID = D.FurnizorID
+4.  	SELECT F.NumeFurnizor, F.CategorieFurnizor, d.NumeDepartament FROM Departamente D inner join Furnizori F on F.FurnizorID = D.FurnizorID
 
-5. 	SELECT d.NumeDepartament  , sum(p.Stoc) as Stoc FROM Departamente d inner join Produse P on d.DepartamentID = P.DepartamentID\n" +
+5.  	SELECT d.NumeDepartament  , sum(p.Stoc) as Stoc FROM Departamente d inner join Produse P on d.DepartamentID = P.DepartamentID\n" +
         "group by d.NumeDepartament order by sum(p.Stoc) desc
 
-6. 	SELECT c.Nume, count(C2.ComandaID) AS 'NrComenzi' FROM Clienti C inner join Comenzi C2 on C.ClientID = C2.ClientID\n" +
+6. 	 SELECT c.Nume, count(C2.ComandaID) AS 'NrComenzi' FROM Clienti C inner join Comenzi C2 on C.ClientID = C2.ClientID\n" +
         "group by c.Nume order by count(C2.ComandaID) desc
 
 Interogări complexe: 
