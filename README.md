@@ -4,23 +4,6 @@ Magazin Online
 
 Aplicația pe care am creat-o are rolul de a centraliza produsele dintr-un magazine online. Baza de date continue date despre produse, stocul depozitului, date despre client precum nume, adresa, numar de telefon etc. 
 
-Descrierea tabelelor
-
-Principalul tabel al bazei de date este “Produse”. Acesta conține ID-ul produsului, nume, producator, pretul aferent, cantitatea disponibila, o scurta descriere si ID-ul departamentului din care face parte.
-
-“Departamente” este tabelul care conține coloanele cu ID-ul departamentului, numele acestuia, numele managerului departamentului, precum și ID-ul furnizorului.
-
-“Furnizori” este tabelul care este pus în legătură cu “Departamente”. Acesta se ocupă cu aprovizonarea de marfă pentru fiecare departament în parte. Conține coloanele : Furnizor ID, numele furnizorului, categoria pe care o aprovizionează.
-
-Tabelul  “Comenzi” este utilizat pentru a stabili ce produse au fost comandate, pentru a putea fi scăzute din stoc. El conține coloanele pentru ID-ul comenzii, ID-ul clientului, Pretul total al comenzii, data plasării și data livrării.
-
-“Clienți” este legat de tabelul  “Comenzi”, are rolul de a atribui fiecărei comenzi un autor, conține coloanele: ClientID, numele si prenumele clientului, adresa, numarul de telefon, email-ul, CNP-ul și data nașterii.   
-
-
- Constrângeri:
-Am ales ca numărul de telefon si CNP-ul sa fie de 10, respectiv 13 cifre.
-Câmpurile ProdusID, DepartamentID, FurnizoriID, ComandaID si ClientID sunt unice.
-
 Funcționarea aplicației:
 
 Aplicația începe rularea cu pagina de login pentru administrator.
