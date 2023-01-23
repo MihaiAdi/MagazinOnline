@@ -4,6 +4,15 @@ Magazin Online
 
 Aplicația pe care am creat-o are rolul de a centraliza produsele dintr-un magazine online. Baza de date continue date despre produse, stocul depozitului, date despre client precum nume, adresa, numar de telefon etc. 
 
+
+
+![image](https://user-images.githubusercontent.com/92844868/214073621-3feb70f4-1ca2-4c8c-98c3-1166a7ee7739.png)
+
+
+
+
+
+
 Funcționarea aplicației:
 
 Aplicația începe rularea cu pagina de login pentru administrator.
@@ -37,15 +46,18 @@ FROM Clienti C
                                                                                                    ORDER BY (SELECT avg(CO.PretTotal)from Comenzi CO
      where co.ClientID = C.ClientID ) DESC
 
+
 2. 	  SELECT C.Nume + ' ' + C.Prenume AS Client
                                                   FROM Clienti C, Comenzi CO , ProduseComandate PC , Produse P
                                              WHERE C.ClientID = CO.ClientID AND CO.ComandaID = PC.ComandaID  AND PC.ProdusID = P.ProdusID AND P.DepartamentID IN
                               (SELECT DepartamentID FROM Departamente WHERE P.DepartamentID = 10001 )
 
+
 3. 	  SELECT C.Nume + ' ' + C.Prenume AS Client
                                                              FROM Clienti C, Comenzi CO , ProduseComandate PC , Produse P,Departamente d
               WHERE C.ClientID = CO.ClientID AND CO.ComandaID = PC.ComandaID  AND PC.ProdusID = P.ProdusID AND p.DepartamentID = d.DepartamentID and D.FurnizorID IN
                                                                                                  (SELECT FurnizorID FROM Furnizori WHERE d.FurnizorID = 1003)
+
 
 4. 	  SELECT C.Nume + ' ' + C.Prenume AS Client
                                    FROM Clienti C, Comenzi CO , ProduseComandate PC
